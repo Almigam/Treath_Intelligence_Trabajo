@@ -1,0 +1,47 @@
+{
+  "metadata": {
+    "pcap_file": "data/carnage/carnage.pcap",
+    "timestamp": "2026-01-05T14:29:06.218973",
+    "total_packets": 1426
+  },
+  "iocs": {
+    "ip_addresses": {
+      "10.11.21.102": 1426,
+      "92.53.78.210": 900,
+      "202.239.38.163": 396,
+      "216.58.216.68": 113,
+      "10.11.21.1": 10,
+      "216.58.216.78": 7
+    },
+    "domains": [
+      "89d9b687ac98.site",
+      "google.com",
+      "scaricapag.win",
+      "www.google.com"
+    ],
+    "urls": [
+      "http://google.com/",
+      "http://www.google.com/"
+    ],
+    "user_agents": [
+      "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; Trident/7.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; .NET4.0E)"
+    ],
+    "suspicious_ports": {
+      "49167": 281,
+      "49171": 13,
+      "49173": 58,
+      "49188": 3,
+      "49190": 3,
+      "49189": 9,
+      "49192": 70,
+      "49194": 11,
+      "49196": 107,
+      "49198": 80,
+      "49200": 9,
+      "49202": 8,
+      "49204": 278,
+      "49206": 26,
+      "49208": 39
+    }
+  }
+}

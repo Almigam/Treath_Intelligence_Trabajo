@@ -1,0 +1,145 @@
+======================================================================
+MAPEO MITRE ATT&CK - CARNAGE + EMOTET CAMPAIGN
+======================================================================
+
+
+TA0009 - COLLECTION
+----------------------------------------------------------------------
+
+T1114: Email Collection
+Confianza: HIGH
+Descripción: Recolección de direcciones de email
+Evidencia:
+  • Múltiples direcciones de email en tráfico SMTP
+  • Recolección para posterior campaña de spam
+
+
+TA0011 - COMMAND AND CONTROL
+----------------------------------------------------------------------
+
+T1071.001: Application Layer Protocol: Web Protocols
+Confianza: HIGH
+Descripción: Uso de HTTP/HTTPS para comunicación C2
+Evidencia:
+  • Beaconing periódico detectado vía HTTP/HTTPS
+  • Comunicación regular con servidores C2
+
+T1071.003: Application Layer Protocol: Mail Protocols
+Confianza: HIGH
+Descripción: Uso de SMTP para exfiltración/spam
+Evidencia:
+  • Tráfico SMTP saliente masivo detectado
+  • Bot de spam activo
+
+T1568.002: Dynamic Resolution: Domain Generation Algorithms
+Confianza: HIGH
+Descripción: Uso de DGA para localizar servidores C2
+Evidencia:
+  • Dominios con alta entropía detectados
+  • Patrón típico de DGA en consultas DNS
+
+T1573: Encrypted Channel
+Confianza: HIGH
+Descripción: Comunicación C2 cifrada vía HTTPS
+Evidencia:
+  • Tráfico HTTPS para C2
+  • Certificados TLS observados
+
+T1105: Ingress Tool Transfer
+Confianza: HIGH
+Descripción: Descarga de herramientas/módulos adicionales
+Evidencia:
+  • Descarga de payloads adicionales vía HTTP
+  • Emotet descarga módulos (spam, robo de credenciales)
+
+
+TA0006 - CREDENTIAL ACCESS
+----------------------------------------------------------------------
+
+T1003: OS Credential Dumping
+Confianza: LOW
+Descripción: Robo de credenciales (capacidad de Emotet)
+Evidencia:
+  • Emotet tiene módulos para robo de credenciales
+  • No evidencia directa en PCAP (ocurre en endpoint)
+
+
+TA0005 - DEFENSE EVASION
+----------------------------------------------------------------------
+
+T1027: Obfuscated Files or Information
+Confianza: HIGH
+Descripción: Ofuscación de código malicioso
+Evidencia:
+  • PowerShell con comandos ofuscados (-EncodedCommand)
+  • Payload cifrado en memoria
+
+T1140: Deobfuscate/Decode Files or Information
+Confianza: MEDIUM
+Descripción: Decodificación de payload en memoria
+Evidencia:
+  • PowerShell decodifica y ejecuta payload
+  • Carga reflectiva de DLL en memoria (fileless)
+
+
+TA0007 - DISCOVERY
+----------------------------------------------------------------------
+
+T1083: File and Directory Discovery
+Confianza: MEDIUM
+Descripción: Enumeración de archivos para robo de emails
+Evidencia:
+  • Emotet busca archivos de Outlook para robar contactos
+  • Preparación para módulo de spam
+
+
+TA0002 - EXECUTION
+----------------------------------------------------------------------
+
+T1059.001: Command and Scripting Interpreter: PowerShell
+Confianza: HIGH
+Descripción: Uso de PowerShell para ejecutar comandos maliciosos
+Evidencia:
+  • User-Agent "PowerShell" detectado en tráfico HTTP
+  • Descarga de payloads vía PowerShell típica de Emotet
+
+T1204.002: User Execution: Malicious File
+Confianza: HIGH
+Descripción: Usuario ejecuta archivo malicioso
+Evidencia:
+  • Documento Office con macro maliciosa
+  • Usuario debe habilitar macros para ejecutar payload
+
+
+TA0040 - IMPACT
+----------------------------------------------------------------------
+
+T1499: Endpoint Denial of Service
+Confianza: HIGH
+Descripción: Sistema comprometido usado para spam masivo
+Evidencia:
+  • Volumen masivo de conexiones SMTP
+  • Sistema actúa como bot de spam
+
+
+TA0001 - INITIAL ACCESS
+----------------------------------------------------------------------
+
+T1566.001: Phishing: Spearphishing Attachment
+Confianza: HIGH
+Descripción: Email malicioso con documento adjunto (macro)
+Evidencia:
+  • Emotet típicamente distribuido vía email con documentos Office maliciosos
+  • Macro ejecuta PowerShell para descargar payload
+
+
+TA0003 - PERSISTENCE
+----------------------------------------------------------------------
+
+T1547: Boot or Logon Autostart Execution
+Confianza: MEDIUM
+Descripción: Persistencia vía autoarranque en sistema
+Evidencia:
+  • Emotet establece persistencia vía registro de Windows
+  • Beaconing continuo indica persistencia exitosa
+

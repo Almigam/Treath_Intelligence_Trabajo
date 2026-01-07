@@ -1,0 +1,1055 @@
+{
+    "type": "bundle",
+    "id": "bundle--7eee7586-7ab7-46c1-ad7c-460482f46b68",
+    "objects": [
+        {
+            "type": "identity",
+            "spec_version": "2.1",
+            "id": "identity--9b2f45b1-cdfd-4796-ab0a-e514b3395efe",
+            "created": "2026-01-07T09:47:41.897079Z",
+            "modified": "2026-01-07T09:47:41.897079Z",
+            "name": "Threat Intelligence Exercise - EUNEIZ",
+            "description": "An\u00e1lisis de inteligencia de amenazas - Carnage + Emotet Campaign",
+            "identity_class": "organization"
+        },
+        {
+            "type": "malware",
+            "spec_version": "2.1",
+            "id": "malware--cd3a7cc5-705b-4bda-9e0b-c0a9e748df80",
+            "created": "2026-01-07T09:47:41.899729Z",
+            "modified": "2026-01-07T09:47:41.899729Z",
+            "name": "Emotet",
+            "description": "Emotet es un troyano bancario modular distribuido v\u00eda phishing.",
+            "malware_types": [
+                "trojan",
+                "backdoor",
+                "spyware"
+            ],
+            "is_family": true,
+            "aliases": [
+                "Geodo",
+                "Heodo"
+            ],
+            "first_seen": "2014-01-01T00:00:00Z",
+            "labels": [
+                "emotet",
+                "banking-trojan",
+                "botnet"
+            ]
+        },
+        {
+            "type": "malware",
+            "spec_version": "2.1",
+            "id": "malware--7e92520a-b2a7-420c-a5e8-7653eb5999a3",
+            "created": "2026-01-07T09:47:41.900958Z",
+            "modified": "2026-01-07T09:47:41.900958Z",
+            "name": "Cobalt Strike",
+            "description": "Framework de C2 usado por actores maliciosos.",
+            "malware_types": [
+                "backdoor",
+                "remote-access-trojan"
+            ],
+            "is_family": true,
+            "labels": [
+                "cobalt-strike",
+                "c2-framework"
+            ]
+        },
+        {
+            "type": "threat-actor",
+            "spec_version": "2.1",
+            "id": "threat-actor--a8ace830-edff-444b-9b23-4dc6632ef7be",
+            "created": "2026-01-07T09:47:41.901366Z",
+            "modified": "2026-01-07T09:47:41.901366Z",
+            "name": "TA505 / Emotet Operators",
+            "description": "Grupo criminal responsable de campa\u00f1as Emotet.",
+            "threat_actor_types": [
+                "crime-syndicate"
+            ],
+            "aliases": [
+                "TA505",
+                "Dridex Gang"
+            ],
+            "sophistication": "advanced",
+            "resource_level": "organization",
+            "primary_motivation": "financial-gain",
+            "labels": [
+                "emotet",
+                "ta505"
+            ]
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--9003c93b-b6c9-4e1d-b7ab-e66fd3581cf4",
+            "created": "2026-01-07T09:47:41.901706Z",
+            "modified": "2026-01-07T09:47:41.901706Z",
+            "name": "Phishing: Spearphishing Attachment",
+            "description": "Email malicioso con documento adjunto (macro)",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1566/001",
+                    "external_id": "T1566.001"
+                }
+            ],
+            "x_mitre_detection": "Emotet t\u00edpicamente distribuido v\u00eda email con documentos Office maliciosos\nMacro ejecuta PowerShell para descargar payload"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--756aca11-9ef3-43c7-844c-077c98d89879",
+            "created": "2026-01-07T09:47:41.902231Z",
+            "modified": "2026-01-07T09:47:41.902231Z",
+            "name": "Command and Scripting Interpreter: PowerShell",
+            "description": "Uso de PowerShell para ejecutar comandos maliciosos",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1059/001",
+                    "external_id": "T1059.001"
+                }
+            ],
+            "x_mitre_detection": "User-Agent \"PowerShell\" detectado en tr\u00e1fico HTTP\nDescarga de payloads v\u00eda PowerShell t\u00edpica de Emotet"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--b49b1a9a-58c9-455f-9a6a-106ab9fc63cd",
+            "created": "2026-01-07T09:47:41.903259Z",
+            "modified": "2026-01-07T09:47:41.903259Z",
+            "name": "User Execution: Malicious File",
+            "description": "Usuario ejecuta archivo malicioso",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1204/002",
+                    "external_id": "T1204.002"
+                }
+            ],
+            "x_mitre_detection": "Documento Office con macro maliciosa\nUsuario debe habilitar macros para ejecutar payload"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--fa6f9fe4-5111-400d-bfb0-1866b36e88ee",
+            "created": "2026-01-07T09:47:41.903537Z",
+            "modified": "2026-01-07T09:47:41.903537Z",
+            "name": "Boot or Logon Autostart Execution",
+            "description": "Persistencia v\u00eda autoarranque en sistema",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1547",
+                    "external_id": "T1547"
+                }
+            ],
+            "x_mitre_detection": "Emotet establece persistencia v\u00eda registro de Windows\nBeaconing continuo indica persistencia exitosa"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--ecf7eacb-2583-491b-9d6e-cc602c8c5152",
+            "created": "2026-01-07T09:47:41.903728Z",
+            "modified": "2026-01-07T09:47:41.903728Z",
+            "name": "Obfuscated Files or Information",
+            "description": "Ofuscaci\u00f3n de c\u00f3digo malicioso",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1027",
+                    "external_id": "T1027"
+                }
+            ],
+            "x_mitre_detection": "PowerShell con comandos ofuscados (-EncodedCommand)\nPayload cifrado en memoria"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--9cd4f2ee-9d45-420e-b1e0-0956140f610e",
+            "created": "2026-01-07T09:47:41.903913Z",
+            "modified": "2026-01-07T09:47:41.903913Z",
+            "name": "Deobfuscate/Decode Files or Information",
+            "description": "Decodificaci\u00f3n de payload en memoria",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1140",
+                    "external_id": "T1140"
+                }
+            ],
+            "x_mitre_detection": "PowerShell decodifica y ejecuta payload\nCarga reflectiva de DLL en memoria (fileless)"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--5d5f18cb-3186-46e1-ab09-916ff07c7d8c",
+            "created": "2026-01-07T09:47:41.904173Z",
+            "modified": "2026-01-07T09:47:41.904173Z",
+            "name": "File and Directory Discovery",
+            "description": "Enumeraci\u00f3n de archivos para robo de emails",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1083",
+                    "external_id": "T1083"
+                }
+            ],
+            "x_mitre_detection": "Emotet busca archivos de Outlook para robar contactos\nPreparaci\u00f3n para m\u00f3dulo de spam"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--d23ebaa0-af67-4a7f-8e1a-a2e7c83f7dbb",
+            "created": "2026-01-07T09:47:41.904373Z",
+            "modified": "2026-01-07T09:47:41.904373Z",
+            "name": "Email Collection",
+            "description": "Recolecci\u00f3n de direcciones de email",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1114",
+                    "external_id": "T1114"
+                }
+            ],
+            "x_mitre_detection": "M\u00faltiples direcciones de email en tr\u00e1fico SMTP\nRecolecci\u00f3n para posterior campa\u00f1a de spam"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--1568428c-1bb3-4aae-8b68-46f3b3be2dc0",
+            "created": "2026-01-07T09:47:41.904565Z",
+            "modified": "2026-01-07T09:47:41.904565Z",
+            "name": "Application Layer Protocol: Web Protocols",
+            "description": "Uso de HTTP/HTTPS para comunicaci\u00f3n C2",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1071/001",
+                    "external_id": "T1071.001"
+                }
+            ],
+            "x_mitre_detection": "Beaconing peri\u00f3dico detectado v\u00eda HTTP/HTTPS\nComunicaci\u00f3n regular con servidores C2"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--ee1f99f4-6d9f-4e68-b335-b14db23e2d89",
+            "created": "2026-01-07T09:47:41.904752Z",
+            "modified": "2026-01-07T09:47:41.904752Z",
+            "name": "Application Layer Protocol: Mail Protocols",
+            "description": "Uso de SMTP para exfiltraci\u00f3n/spam",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1071/003",
+                    "external_id": "T1071.003"
+                }
+            ],
+            "x_mitre_detection": "Tr\u00e1fico SMTP saliente masivo detectado\nBot de spam activo"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--284e9aa1-0ea1-4d1e-b059-cd20a8862f58",
+            "created": "2026-01-07T09:47:41.904932Z",
+            "modified": "2026-01-07T09:47:41.904932Z",
+            "name": "Dynamic Resolution: Domain Generation Algorithms",
+            "description": "Uso de DGA para localizar servidores C2",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1568/002",
+                    "external_id": "T1568.002"
+                }
+            ],
+            "x_mitre_detection": "Dominios con alta entrop\u00eda detectados\nPatr\u00f3n t\u00edpico de DGA en consultas DNS"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--c34baae5-dc17-43e8-8cda-35a6a59cebf0",
+            "created": "2026-01-07T09:47:41.905114Z",
+            "modified": "2026-01-07T09:47:41.905114Z",
+            "name": "Encrypted Channel",
+            "description": "Comunicaci\u00f3n C2 cifrada v\u00eda HTTPS",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1573",
+                    "external_id": "T1573"
+                }
+            ],
+            "x_mitre_detection": "Tr\u00e1fico HTTPS para C2\nCertificados TLS observados"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--49a07499-1d9a-4f8a-abea-0b5babc2a940",
+            "created": "2026-01-07T09:47:41.905333Z",
+            "modified": "2026-01-07T09:47:41.905333Z",
+            "name": "Ingress Tool Transfer",
+            "description": "Descarga de herramientas/m\u00f3dulos adicionales",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1105",
+                    "external_id": "T1105"
+                }
+            ],
+            "x_mitre_detection": "Descarga de payloads adicionales v\u00eda HTTP\nEmotet descarga m\u00f3dulos (spam, robo de credenciales)"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--8dbc6ef4-5040-46e8-936b-34c46c94ebf6",
+            "created": "2026-01-07T09:47:41.905522Z",
+            "modified": "2026-01-07T09:47:41.905522Z",
+            "name": "Endpoint Denial of Service",
+            "description": "Sistema comprometido usado para spam masivo",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1499",
+                    "external_id": "T1499"
+                }
+            ],
+            "x_mitre_detection": "Volumen masivo de conexiones SMTP\nSistema act\u00faa como bot de spam"
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--3e21b126-af21-41e5-a958-09b574a8052c",
+            "created": "2026-01-07T09:47:41.905924Z",
+            "modified": "2026-01-07T09:47:41.905924Z",
+            "name": "Malicious IP: 104.236.185.25",
+            "description": "Direcci\u00f3n IP asociada a C2",
+            "indicator_types": [
+                "malicious-activity"
+            ],
+            "pattern": "[ipv4-addr:value = '104.236.185.25']",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "valid_from": "2026-01-07T09:47:41.905887Z",
+            "labels": [
+                "malicious-activity",
+                "c2"
+            ]
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--dcd0d4bc-485d-432b-9a69-3b9ab7956a39",
+            "created": "2026-01-07T09:47:41.913926Z",
+            "modified": "2026-01-07T09:47:41.913926Z",
+            "name": "Malicious IP: 108.167.189.16",
+            "description": "Direcci\u00f3n IP asociada a C2",
+            "indicator_types": [
+                "malicious-activity"
+            ],
+            "pattern": "[ipv4-addr:value = '108.167.189.16']",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "valid_from": "2026-01-07T09:47:41.913888Z",
+            "labels": [
+                "malicious-activity",
+                "c2"
+            ]
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--9d6a5815-710c-4b57-8fd9-5cab893932ef",
+            "created": "2026-01-07T09:47:41.915006Z",
+            "modified": "2026-01-07T09:47:41.915006Z",
+            "name": "Malicious IP: 112.78.2.95",
+            "description": "Direcci\u00f3n IP asociada a C2",
+            "indicator_types": [
+                "malicious-activity"
+            ],
+            "pattern": "[ipv4-addr:value = '112.78.2.95']",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "valid_from": "2026-01-07T09:47:41.914928Z",
+            "labels": [
+                "malicious-activity",
+                "c2"
+            ]
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--c69ec434-f8f5-4467-a0d0-2f6f12379e5c",
+            "created": "2026-01-07T09:47:41.916211Z",
+            "modified": "2026-01-07T09:47:41.916211Z",
+            "name": "Malicious IP: 173.201.193.101",
+            "description": "Direcci\u00f3n IP asociada a C2",
+            "indicator_types": [
+                "malicious-activity"
+            ],
+            "pattern": "[ipv4-addr:value = '173.201.193.101']",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "valid_from": "2026-01-07T09:47:41.91618Z",
+            "labels": [
+                "malicious-activity",
+                "c2"
+            ]
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--3ff8bac2-18c7-47b7-b9eb-f75a8091f800",
+            "created": "2026-01-07T09:47:41.916999Z",
+            "modified": "2026-01-07T09:47:41.916999Z",
+            "name": "Malicious IP: 189.250.153.215",
+            "description": "Direcci\u00f3n IP asociada a C2",
+            "indicator_types": [
+                "malicious-activity"
+            ],
+            "pattern": "[ipv4-addr:value = '189.250.153.215']",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "valid_from": "2026-01-07T09:47:41.916974Z",
+            "labels": [
+                "malicious-activity",
+                "c2"
+            ]
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--8a21ca3e-2880-4238-bbc9-cb7d1cfe66a0",
+            "created": "2026-01-07T09:47:41.917605Z",
+            "modified": "2026-01-07T09:47:41.917605Z",
+            "name": "Malicious IP: 190.10.194.42",
+            "description": "Direcci\u00f3n IP asociada a C2",
+            "indicator_types": [
+                "malicious-activity"
+            ],
+            "pattern": "[ipv4-addr:value = '190.10.194.42']",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "valid_from": "2026-01-07T09:47:41.917587Z",
+            "labels": [
+                "malicious-activity",
+                "c2"
+            ]
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--d491238e-3bd7-42e2-9371-9c8a9c898299",
+            "created": "2026-01-07T09:47:41.91817Z",
+            "modified": "2026-01-07T09:47:41.91817Z",
+            "name": "Malicious IP: 190.226.40.3",
+            "description": "Direcci\u00f3n IP asociada a C2",
+            "indicator_types": [
+                "malicious-activity"
+            ],
+            "pattern": "[ipv4-addr:value = '190.226.40.3']",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "valid_from": "2026-01-07T09:47:41.918158Z",
+            "labels": [
+                "malicious-activity",
+                "c2"
+            ]
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--75cf6419-36ce-49d7-a7c4-9cd92e8e96c7",
+            "created": "2026-01-07T09:47:41.919414Z",
+            "modified": "2026-01-07T09:47:41.919414Z",
+            "name": "Malicious IP: 200.68.61.242",
+            "description": "Direcci\u00f3n IP asociada a C2",
+            "indicator_types": [
+                "malicious-activity"
+            ],
+            "pattern": "[ipv4-addr:value = '200.68.61.242']",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "valid_from": "2026-01-07T09:47:41.919383Z",
+            "labels": [
+                "malicious-activity",
+                "c2"
+            ]
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--7fbb1a8a-99e1-47ac-894c-856a3ca2de83",
+            "created": "2026-01-07T09:47:41.921199Z",
+            "modified": "2026-01-07T09:47:41.921199Z",
+            "name": "Malicious IP: 208.84.244.49",
+            "description": "Direcci\u00f3n IP asociada a C2",
+            "indicator_types": [
+                "malicious-activity"
+            ],
+            "pattern": "[ipv4-addr:value = '208.84.244.49']",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "valid_from": "2026-01-07T09:47:41.921143Z",
+            "labels": [
+                "malicious-activity",
+                "c2"
+            ]
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--3a02d4b6-4325-4376-82c4-bd4b718388aa",
+            "created": "2026-01-07T09:47:41.923501Z",
+            "modified": "2026-01-07T09:47:41.923501Z",
+            "name": "Malicious IP: 50.87.153.168",
+            "description": "Direcci\u00f3n IP asociada a C2",
+            "indicator_types": [
+                "malicious-activity"
+            ],
+            "pattern": "[ipv4-addr:value = '50.87.153.168']",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "valid_from": "2026-01-07T09:47:41.923441Z",
+            "labels": [
+                "malicious-activity",
+                "c2"
+            ]
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--6dfdf105-8828-4e70-a35b-9734f3d615b3",
+            "created": "2026-01-07T09:47:41.925022Z",
+            "modified": "2026-01-07T09:47:41.925022Z",
+            "name": "Malicious IP: 68.178.252.101",
+            "description": "Direcci\u00f3n IP asociada a C2",
+            "indicator_types": [
+                "malicious-activity"
+            ],
+            "pattern": "[ipv4-addr:value = '68.178.252.101']",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "valid_from": "2026-01-07T09:47:41.924978Z",
+            "labels": [
+                "malicious-activity",
+                "c2"
+            ]
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--282d635c-0991-498a-918d-8f4626831e70",
+            "created": "2026-01-07T09:47:41.927456Z",
+            "modified": "2026-01-07T09:47:41.927456Z",
+            "name": "Malicious IP: 68.178.252.229",
+            "description": "Direcci\u00f3n IP asociada a C2",
+            "indicator_types": [
+                "malicious-activity"
+            ],
+            "pattern": "[ipv4-addr:value = '68.178.252.229']",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "valid_from": "2026-01-07T09:47:41.927401Z",
+            "labels": [
+                "malicious-activity",
+                "c2"
+            ]
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--890e7287-9610-46e0-b5bb-17ad2fef4d1f",
+            "created": "2026-01-07T09:47:41.928647Z",
+            "modified": "2026-01-07T09:47:41.928647Z",
+            "name": "Malicious IP: 69.49.115.72",
+            "description": "Direcci\u00f3n IP asociada a C2",
+            "indicator_types": [
+                "malicious-activity"
+            ],
+            "pattern": "[ipv4-addr:value = '69.49.115.72']",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "valid_from": "2026-01-07T09:47:41.928608Z",
+            "labels": [
+                "malicious-activity",
+                "c2"
+            ]
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--e6faf9d8-3d69-4067-b160-9c6a6709bf8d",
+            "created": "2026-01-07T09:47:41.929881Z",
+            "modified": "2026-01-07T09:47:41.929881Z",
+            "name": "Malicious IP: 72.47.248.48",
+            "description": "Direcci\u00f3n IP asociada a C2",
+            "indicator_types": [
+                "malicious-activity"
+            ],
+            "pattern": "[ipv4-addr:value = '72.47.248.48']",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "valid_from": "2026-01-07T09:47:41.929793Z",
+            "labels": [
+                "malicious-activity",
+                "c2"
+            ]
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--6d9ecf0e-9f5d-4885-a120-b3706d736e6a",
+            "created": "2026-01-07T09:47:41.931737Z",
+            "modified": "2026-01-07T09:47:41.931737Z",
+            "name": "Malicious IP: 74.125.133.108",
+            "description": "Direcci\u00f3n IP asociada a C2",
+            "indicator_types": [
+                "malicious-activity"
+            ],
+            "pattern": "[ipv4-addr:value = '74.125.133.108']",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "valid_from": "2026-01-07T09:47:41.931689Z",
+            "labels": [
+                "malicious-activity",
+                "c2"
+            ]
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--647e77d9-28fd-48f0-ac39-f7e29d8bc984",
+            "created": "2026-01-07T09:47:41.933917Z",
+            "modified": "2026-01-07T09:47:41.933917Z",
+            "name": "Malicious IP: 74.208.5.15",
+            "description": "Direcci\u00f3n IP asociada a C2",
+            "indicator_types": [
+                "malicious-activity"
+            ],
+            "pattern": "[ipv4-addr:value = '74.208.5.15']",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "valid_from": "2026-01-07T09:47:41.933853Z",
+            "labels": [
+                "malicious-activity",
+                "c2"
+            ]
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--70b5f4ba-bf09-4445-9b10-eeeadb2a5d10",
+            "created": "2026-01-07T09:47:41.936106Z",
+            "modified": "2026-01-07T09:47:41.936106Z",
+            "name": "Malicious IP: 81.2.194.244",
+            "description": "Direcci\u00f3n IP asociada a C2",
+            "indicator_types": [
+                "malicious-activity"
+            ],
+            "pattern": "[ipv4-addr:value = '81.2.194.244']",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "valid_from": "2026-01-07T09:47:41.936022Z",
+            "labels": [
+                "malicious-activity",
+                "c2"
+            ]
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--2c5614b6-e152-4e62-b1f9-2b6ef0be5bfc",
+            "created": "2026-01-07T09:47:41.937078Z",
+            "modified": "2026-01-07T09:47:41.937078Z",
+            "name": "Malicious IP: 98.136.96.80",
+            "description": "Direcci\u00f3n IP asociada a C2",
+            "indicator_types": [
+                "malicious-activity"
+            ],
+            "pattern": "[ipv4-addr:value = '98.136.96.80']",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "valid_from": "2026-01-07T09:47:41.937054Z",
+            "labels": [
+                "malicious-activity",
+                "c2"
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--6b790d0c-6bad-442c-9671-c69c5aa049ad",
+            "created": "2026-01-07T09:47:41.938162Z",
+            "modified": "2026-01-07T09:47:41.938162Z",
+            "relationship_type": "uses",
+            "description": "TA505 utiliza Emotet",
+            "source_ref": "threat-actor--a8ace830-edff-444b-9b23-4dc6632ef7be",
+            "target_ref": "malware--cd3a7cc5-705b-4bda-9e0b-c0a9e748df80"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--315fa003-acb7-458e-8af3-f35f39ee80ff",
+            "created": "2026-01-07T09:47:41.940342Z",
+            "modified": "2026-01-07T09:47:41.940342Z",
+            "relationship_type": "uses",
+            "source_ref": "malware--cd3a7cc5-705b-4bda-9e0b-c0a9e748df80",
+            "target_ref": "attack-pattern--9003c93b-b6c9-4e1d-b7ab-e66fd3581cf4"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--35797797-b0b8-46f5-97ac-496b91918704",
+            "created": "2026-01-07T09:47:41.940748Z",
+            "modified": "2026-01-07T09:47:41.940748Z",
+            "relationship_type": "uses",
+            "source_ref": "malware--cd3a7cc5-705b-4bda-9e0b-c0a9e748df80",
+            "target_ref": "attack-pattern--756aca11-9ef3-43c7-844c-077c98d89879"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--f71821b9-8d8b-437a-8472-bed88f1c258b",
+            "created": "2026-01-07T09:47:41.940917Z",
+            "modified": "2026-01-07T09:47:41.940917Z",
+            "relationship_type": "uses",
+            "source_ref": "malware--cd3a7cc5-705b-4bda-9e0b-c0a9e748df80",
+            "target_ref": "attack-pattern--b49b1a9a-58c9-455f-9a6a-106ab9fc63cd"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--6c38a66c-a1c3-4796-9793-aacddf95a7ef",
+            "created": "2026-01-07T09:47:41.941065Z",
+            "modified": "2026-01-07T09:47:41.941065Z",
+            "relationship_type": "uses",
+            "source_ref": "malware--cd3a7cc5-705b-4bda-9e0b-c0a9e748df80",
+            "target_ref": "attack-pattern--fa6f9fe4-5111-400d-bfb0-1866b36e88ee"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--56dc5617-f4aa-44e7-bd03-8feef1f6cf97",
+            "created": "2026-01-07T09:47:41.941208Z",
+            "modified": "2026-01-07T09:47:41.941208Z",
+            "relationship_type": "uses",
+            "source_ref": "malware--cd3a7cc5-705b-4bda-9e0b-c0a9e748df80",
+            "target_ref": "attack-pattern--ecf7eacb-2583-491b-9d6e-cc602c8c5152"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--bc73410d-59ef-4e6a-a1aa-50df202ad08a",
+            "created": "2026-01-07T09:47:41.941366Z",
+            "modified": "2026-01-07T09:47:41.941366Z",
+            "relationship_type": "uses",
+            "source_ref": "malware--cd3a7cc5-705b-4bda-9e0b-c0a9e748df80",
+            "target_ref": "attack-pattern--9cd4f2ee-9d45-420e-b1e0-0956140f610e"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--35ea0562-c952-4edd-9c13-4eb10957a1d8",
+            "created": "2026-01-07T09:47:41.941589Z",
+            "modified": "2026-01-07T09:47:41.941589Z",
+            "relationship_type": "uses",
+            "source_ref": "malware--cd3a7cc5-705b-4bda-9e0b-c0a9e748df80",
+            "target_ref": "attack-pattern--5d5f18cb-3186-46e1-ab09-916ff07c7d8c"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--f9dead89-9901-4557-838b-cfabe6506185",
+            "created": "2026-01-07T09:47:41.941768Z",
+            "modified": "2026-01-07T09:47:41.941768Z",
+            "relationship_type": "uses",
+            "source_ref": "malware--cd3a7cc5-705b-4bda-9e0b-c0a9e748df80",
+            "target_ref": "attack-pattern--d23ebaa0-af67-4a7f-8e1a-a2e7c83f7dbb"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--3ade8643-d82b-4546-85ef-69b9deea6e7e",
+            "created": "2026-01-07T09:47:41.941939Z",
+            "modified": "2026-01-07T09:47:41.941939Z",
+            "relationship_type": "uses",
+            "source_ref": "malware--cd3a7cc5-705b-4bda-9e0b-c0a9e748df80",
+            "target_ref": "attack-pattern--1568428c-1bb3-4aae-8b68-46f3b3be2dc0"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--8e44e402-9eda-4843-b206-0231782f9fe0",
+            "created": "2026-01-07T09:47:41.94208Z",
+            "modified": "2026-01-07T09:47:41.94208Z",
+            "relationship_type": "uses",
+            "source_ref": "malware--cd3a7cc5-705b-4bda-9e0b-c0a9e748df80",
+            "target_ref": "attack-pattern--ee1f99f4-6d9f-4e68-b335-b14db23e2d89"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--f538e0e7-11cc-4c3e-9494-1ab5cb3586dd",
+            "created": "2026-01-07T09:47:41.942234Z",
+            "modified": "2026-01-07T09:47:41.942234Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--3e21b126-af21-41e5-a958-09b574a8052c",
+            "target_ref": "malware--cd3a7cc5-705b-4bda-9e0b-c0a9e748df80"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--c74e6628-6bb3-46a4-9dde-9c8021461c5c",
+            "created": "2026-01-07T09:47:41.942381Z",
+            "modified": "2026-01-07T09:47:41.942381Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--dcd0d4bc-485d-432b-9a69-3b9ab7956a39",
+            "target_ref": "malware--cd3a7cc5-705b-4bda-9e0b-c0a9e748df80"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--febc581e-780b-45b4-a207-0be0ee9a36b3",
+            "created": "2026-01-07T09:47:41.942599Z",
+            "modified": "2026-01-07T09:47:41.942599Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--9d6a5815-710c-4b57-8fd9-5cab893932ef",
+            "target_ref": "malware--cd3a7cc5-705b-4bda-9e0b-c0a9e748df80"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--bf5c24ec-3a0e-4bee-a022-65db4e60b62e",
+            "created": "2026-01-07T09:47:41.942767Z",
+            "modified": "2026-01-07T09:47:41.942767Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--c69ec434-f8f5-4467-a0d0-2f6f12379e5c",
+            "target_ref": "malware--cd3a7cc5-705b-4bda-9e0b-c0a9e748df80"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--2c55a64b-3726-4532-bb53-7d59df34eadb",
+            "created": "2026-01-07T09:47:41.942908Z",
+            "modified": "2026-01-07T09:47:41.942908Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--3ff8bac2-18c7-47b7-b9eb-f75a8091f800",
+            "target_ref": "malware--cd3a7cc5-705b-4bda-9e0b-c0a9e748df80"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--9b4bfced-0387-4e51-a822-d879f9ff13ac",
+            "created": "2026-01-07T09:47:41.943055Z",
+            "modified": "2026-01-07T09:47:41.943055Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--8a21ca3e-2880-4238-bbc9-cb7d1cfe66a0",
+            "target_ref": "malware--cd3a7cc5-705b-4bda-9e0b-c0a9e748df80"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--a66ebbb0-ad9d-4bf6-abdc-6c991d362671",
+            "created": "2026-01-07T09:47:41.943198Z",
+            "modified": "2026-01-07T09:47:41.943198Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--d491238e-3bd7-42e2-9371-9c8a9c898299",
+            "target_ref": "malware--cd3a7cc5-705b-4bda-9e0b-c0a9e748df80"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--b30fd16c-2a75-4d53-858b-1aa4d76d9bb1",
+            "created": "2026-01-07T09:47:41.943345Z",
+            "modified": "2026-01-07T09:47:41.943345Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--75cf6419-36ce-49d7-a7c4-9cd92e8e96c7",
+            "target_ref": "malware--cd3a7cc5-705b-4bda-9e0b-c0a9e748df80"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--7e034de5-4522-4495-a766-fec1a00c54dc",
+            "created": "2026-01-07T09:47:41.943633Z",
+            "modified": "2026-01-07T09:47:41.943633Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--7fbb1a8a-99e1-47ac-894c-856a3ca2de83",
+            "target_ref": "malware--cd3a7cc5-705b-4bda-9e0b-c0a9e748df80"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--82e82786-7f40-42fc-b77a-b284d92b38e7",
+            "created": "2026-01-07T09:47:41.943817Z",
+            "modified": "2026-01-07T09:47:41.943817Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--3a02d4b6-4325-4376-82c4-bd4b718388aa",
+            "target_ref": "malware--cd3a7cc5-705b-4bda-9e0b-c0a9e748df80"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--5cf9bd62-ac70-41de-b30b-cb54c3091815",
+            "created": "2026-01-07T09:47:41.943954Z",
+            "modified": "2026-01-07T09:47:41.943954Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--6dfdf105-8828-4e70-a35b-9734f3d615b3",
+            "target_ref": "malware--cd3a7cc5-705b-4bda-9e0b-c0a9e748df80"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--34d99df5-2fc3-4fca-8c0b-43f54698f9e1",
+            "created": "2026-01-07T09:47:41.944094Z",
+            "modified": "2026-01-07T09:47:41.944094Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--282d635c-0991-498a-918d-8f4626831e70",
+            "target_ref": "malware--cd3a7cc5-705b-4bda-9e0b-c0a9e748df80"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--8ba29f93-951b-4aa3-b81b-ff2575c0c90d",
+            "created": "2026-01-07T09:47:41.944233Z",
+            "modified": "2026-01-07T09:47:41.944233Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--890e7287-9610-46e0-b5bb-17ad2fef4d1f",
+            "target_ref": "malware--cd3a7cc5-705b-4bda-9e0b-c0a9e748df80"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--9653caa8-aaf9-463e-88fc-e08d0a6825b4",
+            "created": "2026-01-07T09:47:41.944372Z",
+            "modified": "2026-01-07T09:47:41.944372Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--e6faf9d8-3d69-4067-b160-9c6a6709bf8d",
+            "target_ref": "malware--cd3a7cc5-705b-4bda-9e0b-c0a9e748df80"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--b62ff73f-fdf7-4be2-ab05-bfb2203823e0",
+            "created": "2026-01-07T09:47:41.944618Z",
+            "modified": "2026-01-07T09:47:41.944618Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--6d9ecf0e-9f5d-4885-a120-b3706d736e6a",
+            "target_ref": "malware--cd3a7cc5-705b-4bda-9e0b-c0a9e748df80"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--a1955c7d-c692-4b7e-93da-50a2e3c38a17",
+            "created": "2026-01-07T09:47:41.944764Z",
+            "modified": "2026-01-07T09:47:41.944764Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--647e77d9-28fd-48f0-ac39-f7e29d8bc984",
+            "target_ref": "malware--cd3a7cc5-705b-4bda-9e0b-c0a9e748df80"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--71e0af5d-4ce7-4a9b-8669-18cf52588f46",
+            "created": "2026-01-07T09:47:41.944915Z",
+            "modified": "2026-01-07T09:47:41.944915Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--70b5f4ba-bf09-4445-9b10-eeeadb2a5d10",
+            "target_ref": "malware--cd3a7cc5-705b-4bda-9e0b-c0a9e748df80"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--f1c15770-d4a2-47fb-a101-de86662440b3",
+            "created": "2026-01-07T09:47:41.945062Z",
+            "modified": "2026-01-07T09:47:41.945062Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--2c5614b6-e152-4e62-b1f9-2b6ef0be5bfc",
+            "target_ref": "malware--cd3a7cc5-705b-4bda-9e0b-c0a9e748df80"
+        },
+        {
+            "type": "report",
+            "spec_version": "2.1",
+            "id": "report--10e8f8b0-0192-48d9-9f6c-bf74b926fb88",
+            "created": "2026-01-07T09:47:41.94614Z",
+            "modified": "2026-01-07T09:47:41.94614Z",
+            "name": "Threat Intelligence Report - Emotet / Carnage",
+            "description": "Reporte STIX completo de Emotet y dataset Carnage.",
+            "report_types": [
+                "threat-report"
+            ],
+            "published": "2026-01-07T09:47:41.945608Z",
+            "object_refs": [
+                "identity--9b2f45b1-cdfd-4796-ab0a-e514b3395efe",
+                "malware--cd3a7cc5-705b-4bda-9e0b-c0a9e748df80",
+                "malware--7e92520a-b2a7-420c-a5e8-7653eb5999a3",
+                "threat-actor--a8ace830-edff-444b-9b23-4dc6632ef7be",
+                "attack-pattern--9003c93b-b6c9-4e1d-b7ab-e66fd3581cf4",
+                "attack-pattern--756aca11-9ef3-43c7-844c-077c98d89879",
+                "attack-pattern--b49b1a9a-58c9-455f-9a6a-106ab9fc63cd",
+                "attack-pattern--fa6f9fe4-5111-400d-bfb0-1866b36e88ee",
+                "attack-pattern--ecf7eacb-2583-491b-9d6e-cc602c8c5152",
+                "attack-pattern--9cd4f2ee-9d45-420e-b1e0-0956140f610e",
+                "attack-pattern--5d5f18cb-3186-46e1-ab09-916ff07c7d8c",
+                "attack-pattern--d23ebaa0-af67-4a7f-8e1a-a2e7c83f7dbb",
+                "attack-pattern--1568428c-1bb3-4aae-8b68-46f3b3be2dc0",
+                "attack-pattern--ee1f99f4-6d9f-4e68-b335-b14db23e2d89",
+                "attack-pattern--284e9aa1-0ea1-4d1e-b059-cd20a8862f58",
+                "attack-pattern--c34baae5-dc17-43e8-8cda-35a6a59cebf0",
+                "attack-pattern--49a07499-1d9a-4f8a-abea-0b5babc2a940",
+                "attack-pattern--8dbc6ef4-5040-46e8-936b-34c46c94ebf6",
+                "indicator--3e21b126-af21-41e5-a958-09b574a8052c",
+                "indicator--dcd0d4bc-485d-432b-9a69-3b9ab7956a39",
+                "indicator--9d6a5815-710c-4b57-8fd9-5cab893932ef",
+                "indicator--c69ec434-f8f5-4467-a0d0-2f6f12379e5c",
+                "indicator--3ff8bac2-18c7-47b7-b9eb-f75a8091f800",
+                "indicator--8a21ca3e-2880-4238-bbc9-cb7d1cfe66a0",
+                "indicator--d491238e-3bd7-42e2-9371-9c8a9c898299",
+                "indicator--75cf6419-36ce-49d7-a7c4-9cd92e8e96c7",
+                "indicator--7fbb1a8a-99e1-47ac-894c-856a3ca2de83",
+                "indicator--3a02d4b6-4325-4376-82c4-bd4b718388aa",
+                "indicator--6dfdf105-8828-4e70-a35b-9734f3d615b3",
+                "indicator--282d635c-0991-498a-918d-8f4626831e70",
+                "indicator--890e7287-9610-46e0-b5bb-17ad2fef4d1f",
+                "indicator--e6faf9d8-3d69-4067-b160-9c6a6709bf8d",
+                "indicator--6d9ecf0e-9f5d-4885-a120-b3706d736e6a",
+                "indicator--647e77d9-28fd-48f0-ac39-f7e29d8bc984",
+                "indicator--70b5f4ba-bf09-4445-9b10-eeeadb2a5d10",
+                "indicator--2c5614b6-e152-4e62-b1f9-2b6ef0be5bfc",
+                "relationship--6b790d0c-6bad-442c-9671-c69c5aa049ad",
+                "relationship--315fa003-acb7-458e-8af3-f35f39ee80ff",
+                "relationship--35797797-b0b8-46f5-97ac-496b91918704",
+                "relationship--f71821b9-8d8b-437a-8472-bed88f1c258b",
+                "relationship--6c38a66c-a1c3-4796-9793-aacddf95a7ef",
+                "relationship--56dc5617-f4aa-44e7-bd03-8feef1f6cf97",
+                "relationship--bc73410d-59ef-4e6a-a1aa-50df202ad08a",
+                "relationship--35ea0562-c952-4edd-9c13-4eb10957a1d8",
+                "relationship--f9dead89-9901-4557-838b-cfabe6506185",
+                "relationship--3ade8643-d82b-4546-85ef-69b9deea6e7e",
+                "relationship--8e44e402-9eda-4843-b206-0231782f9fe0",
+                "relationship--f538e0e7-11cc-4c3e-9494-1ab5cb3586dd",
+                "relationship--c74e6628-6bb3-46a4-9dde-9c8021461c5c",
+                "relationship--febc581e-780b-45b4-a207-0be0ee9a36b3",
+                "relationship--bf5c24ec-3a0e-4bee-a022-65db4e60b62e",
+                "relationship--2c55a64b-3726-4532-bb53-7d59df34eadb",
+                "relationship--9b4bfced-0387-4e51-a822-d879f9ff13ac",
+                "relationship--a66ebbb0-ad9d-4bf6-abdc-6c991d362671",
+                "relationship--b30fd16c-2a75-4d53-858b-1aa4d76d9bb1",
+                "relationship--7e034de5-4522-4495-a766-fec1a00c54dc",
+                "relationship--82e82786-7f40-42fc-b77a-b284d92b38e7",
+                "relationship--5cf9bd62-ac70-41de-b30b-cb54c3091815",
+                "relationship--34d99df5-2fc3-4fca-8c0b-43f54698f9e1",
+                "relationship--8ba29f93-951b-4aa3-b81b-ff2575c0c90d",
+                "relationship--9653caa8-aaf9-463e-88fc-e08d0a6825b4",
+                "relationship--b62ff73f-fdf7-4be2-ab05-bfb2203823e0",
+                "relationship--a1955c7d-c692-4b7e-93da-50a2e3c38a17",
+                "relationship--71e0af5d-4ce7-4a9b-8669-18cf52588f46",
+                "relationship--f1c15770-d4a2-47fb-a101-de86662440b3"
+            ],
+            "labels": [
+                "emotet",
+                "carnage"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,164 @@
+{
+  "metadata": {
+    "timestamp": "2026-01-05T15:25:18.979802",
+    "sources": [
+      "carnage",
+      "emotet"
+    ]
+  },
+  "statistics": {
+    "ips": {
+      "malicious": 18,
+      "suspicious": 4,
+      "internal": 4,
+      "legitimate": 0
+    },
+    "domains": {
+      "malicious": 0,
+      "suspicious": 539,
+      "dga_candidates": 0,
+      "legitimate": 2
+    },
+    "urls": 20,
+    "user_agents": {
+      "malicious": 0,
+      "suspicious": 2,
+      "legitimate": 1
+    },
+    "email_addresses": 11
+  },
+  "iocs": {
+    "ips": {
+      "malicious": [
+        "104.236.185.25",
+        "108.167.189.16",
+        "112.78.2.95",
+        "173.201.193.101",
+        "189.250.153.215",
+        "190.10.194.42",
+        "190.226.40.3",
+        "200.68.61.242",
+        "208.84.244.49",
+        "50.87.153.168",
+        "68.178.252.101",
+        "68.178.252.229",
+        "69.49.115.72",
+        "72.47.248.48",
+        "74.125.133.108",
+        "74.208.5.15",
+        "81.2.194.244",
+        "98.136.96.80"
+      ],
+      "suspicious": [
+        "202.239.38.163",
+        "216.58.216.68",
+        "216.58.216.78",
+        "92.53.78.210"
+      ],
+      "internal": [
+        "10.1.24.1",
+        "10.1.24.101",
+        "10.11.21.1",
+        "10.11.21.102"
+      ]
+    },
+    "domains": {
+      "malicious": [],
+      "suspicious": [
+        "10.135.74.97.in-addr.arpa",
+        "10.187.203.173.in-addr.arpa",
+        "104.209.26.217.in-addr.arpa",
+        "108.133.125.74.in-addr.arpa",
+        "109.167.233.64.in-addr.arpa",
+        "109.184.233.64.in-addr.arpa",
+        "11.192.81.197.in-addr.arpa",
+        "110.250.254.65.in-addr.arpa",
+        "111.45.43.202.in-addr.arpa",
+        "114.199.97.40.in-addr.arpa",
+        "118.235.105.190.in-addr.arpa",
+        "118.64.28.195.in-addr.arpa",
+        "128.42.40.216.in-addr.arpa",
+        "129.192.201.173.in-addr.arpa",
+        "131.40.136.94.in-addr.arpa",
+        "134.0.212.201.in-addr.arpa",
+        "149.146.11.196.in-addr.arpa",
+        "167.73.155.216.in-addr.arpa",
+        "168.17.227.212.in-addr.arpa",
+        "182.65.63.45.in-addr.arpa",
+        "188.15.227.212.in-addr.arpa",
+        "210.243.250.5.in-addr.arpa",
+        "22b.websitewelcome.com",
+        "234.135.69.200.in-addr.arpa",
+        "242.198.91.208.in-addr.arpa",
+        "243.143.167.108.in-addr.arpa",
+        "246.198.69.118.in-addr.arpa",
+        "25.185.236.104.in-addr.arpa",
+        "250.66.69.62.in-addr.arpa",
+        "252.247.57.198.in-addr.arpa",
+        "33.64.147.69.in-addr.arpa",
+        "34.121.97.40.in-addr.arpa",
+        "4.205.36.17.in-addr.arpa",
+        "41.248.85.190.in-addr.arpa",
+        "49.244.84.208.in-addr.arpa",
+        "54.142.202.74.in-addr.arpa",
+        "60.16.6.107.in-addr.arpa",
+        "66.134.152.206.in-addr.arpa",
+        "69.198.188.206.in-addr.arpa",
+        "72.115.49.69.in-addr.arpa",
+        "74.205.36.17.in-addr.arpa",
+        "8.254.146.31.in-addr.arpa",
+        "85.203.126.176.in-addr.arpa",
+        "89d9b687ac98.site",
+        "95.228.195.67.in-addr.arpa",
+        "98.32.145.82.in-addr.arpa",
+        "a2plcpnl0538.prod.iad2.secureserver.net",
+        "a2plcpnl0756.prod.iad2.secureserver.net",
+        "a2plcpnl0884.prod.iad2.secureserver.net",
+        "akcer.cz"
+      ],
+      "dga_candidates": []
+    },
+    "urls": [
+      "http://104.236.185.25:8080/",
+      "http://104.236.185.25:8080/whoami.php",
+      "http://181.13.229.35:465/",
+      "http://186.176.25.133:20/",
+      "http://187.162.64.241/",
+      "http://187.162.64.241/whoami.php",
+      "http://189.250.153.215:443/",
+      "http://190.10.194.42:8080/",
+      "http://190.10.194.42:8080/whoami.php",
+      "http://198.46.157.252:8080/",
+      "http://200.68.61.242:8080/",
+      "http://50.116.63.9:7080/",
+      "http://72.47.248.48:8080/",
+      "http://96.20.46.60:50000/",
+      "http://akcer.cz/sGpwf-0HQoA4aMhU3pbVz_QlJGdXSP-sf",
+      "http://akcer.cz/sGpwf-0HQoA4aMhU3pbVz_QlJGdXSP-sf/",
+      "http://google.com/",
+      "http://khomyphamhanoi.com/TvTwWqcK0",
+      "http://khomyphamhanoi.com/TvTwWqcK0/",
+      "http://www.google.com/"
+    ],
+    "user_agents": {
+      "malicious": [],
+      "suspicious": [
+        "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; Trident/7.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; .NET4.0E)",
+        "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; WOW64; Trident/7.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; .NET4.0E)"
+      ]
+    },
+    "email_addresses": [
+      "Ashley@veronicahamiltondds.com",
+      "avillafane@fadua.com.ar",
+      "facturaproveedor@elytel.arnetbiz.com.ar",
+      "francisco.guzman@cafeelsalvador.com",
+      "info@mandys.ca",
+      "info@manonboyernotaire.ca",
+      "monitoreo@columbaseguridad.com.mx",
+      "pdr@prestigeautomobiles18.fr",
+      "pdr@prubensteinlaw.com",
+      "pdr@telecomplus.org.uk",
+      "tesoreria@decorwid.com"
+    ]
+  }
+}

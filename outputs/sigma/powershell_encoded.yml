@@ -1,0 +1,15 @@
+author: Threat Intelligence Exercise - EUNEIZ
+date: 2026/01/07
+description: Detecta PowerShell con comando codificado
+detection:
+  condition: selection
+  selection:
+    CommandLine|contains:
+    - -encodedcommand
+    - -enc
+level: high
+logsource:
+  category: process_creation
+  product: windows
+status: experimental
+title: Malicious PowerShell Encoded Command

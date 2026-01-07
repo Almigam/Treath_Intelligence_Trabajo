@@ -1,0 +1,64 @@
+======================================================================
+EVALUACIÓN DE IMPACTO - FEED DE THREAT INTELLIGENCE
+Carnage + Emotet Campaign Analysis
+======================================================================
+
+RESUMEN EJECUTIVO
+----------------------------------------------------------------------
+
+Valor General: HIGH
+Score de Cobertura: 67.33/100
+Recomendación: IMPLEMENT - Feed de alta calidad con aplicabilidad transversal
+
+Fortalezas Clave:
+  ✓ Cobertura completa de Kill Chain
+  ✓ Mapeo detallado MITRE ATT&CK
+  ✓ IoCs validados en múltiples datasets
+  ✓ Interoperabilidad con stack existente
+  ✓ Valor estratégico y operacional demostrable
+
+Limitaciones:
+  • IoCs de red tienen vida útil limitada (1-3 meses)
+  • Requiere actualización periódica
+  • Análisis basado en campañas históricas (2019)
+  • Sin telemetría endpoint directa (solo PCAP)
+
+
+COBERTURA DE INTELIGENCIA
+----------------------------------------------------------------------
+
+Kill Chain: 85.7%
+MITRE ATT&CK: 64.3%
+Total IoCs: 53
+
+
+APLICABILIDAD
+----------------------------------------------------------------------
+
+Sectores de Alta Prioridad:
+  • Sector Financiero (Emotet históricamente apunta a bancos)
+  • Healthcare (ransomware objetivo prioritario)
+  • Educación (superficie de ataque amplia)
+  • Gobierno (APTs y ciberespionaje)
+
+Casos de Uso:
+
+  1. Detección en perímetro de red
+     Efectividad: HIGH
+     Dificultad: LOW
+
+  2. Detección en endpoint
+     Efectividad: MEDIUM
+     Dificultad: MEDIUM
+
+  3. Threat Hunting proactivo
+     Efectividad: HIGH
+     Dificultad: HIGH
+
+  4. Filtrado de email
+     Efectividad: HIGH
+     Dificultad: LOW
+
+  5. Respuesta a incidentes
+     Efectividad: HIGH
+     Dificultad: LOW

@@ -1,0 +1,8 @@
+{
+  "metadata": {
+    "pcap_file": "data/emotet/emotet-2019-01-24.pcap",
+    "timestamp": "2026-01-05T14:29:41.063602",
+    "total_beacons": 0
+  },
+  "beacons": []
+}

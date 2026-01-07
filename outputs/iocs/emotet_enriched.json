@@ -1,0 +1,154 @@
+{
+  "metadata": {
+    "timestamp": "2026-01-05T14:30:28.974509",
+    "source_file": "outputs/iocs/emotet_iocs.json"
+  },
+  "enriched_iocs": {
+    "ips": {
+      "10.1.24.101": {
+        "ip": "10.1.24.101",
+        "source": "manual_check",
+        "note": "Verificar manualmente en: https://www.abuseipdb.com/check/10.1.24.101"
+      },
+      "72.47.248.48": {
+        "ip": "72.47.248.48",
+        "source": "manual_check",
+        "note": "Verificar manualmente en: https://www.abuseipdb.com/check/72.47.248.48"
+      },
+      "200.68.61.242": {
+        "ip": "200.68.61.242",
+        "source": "manual_check",
+        "note": "Verificar manualmente en: https://www.abuseipdb.com/check/200.68.61.242"
+      },
+      "10.1.24.1": {
+        "ip": "10.1.24.1",
+        "source": "manual_check",
+        "note": "Verificar manualmente en: https://www.abuseipdb.com/check/10.1.24.1"
+      },
+      "189.250.153.215": {
+        "ip": "189.250.153.215",
+        "source": "manual_check",
+        "note": "Verificar manualmente en: https://www.abuseipdb.com/check/189.250.153.215"
+      },
+      "108.167.189.16": {
+        "ip": "108.167.189.16",
+        "source": "manual_check",
+        "note": "Verificar manualmente en: https://www.abuseipdb.com/check/108.167.189.16"
+      },
+      "74.125.133.108": {
+        "ip": "74.125.133.108",
+        "source": "manual_check",
+        "note": "Verificar manualmente en: https://www.abuseipdb.com/check/74.125.133.108"
+      },
+      "81.2.194.244": {
+        "ip": "81.2.194.244",
+        "source": "manual_check",
+        "note": "Verificar manualmente en: https://www.abuseipdb.com/check/81.2.194.244"
+      },
+      "74.208.5.15": {
+        "ip": "74.208.5.15",
+        "source": "manual_check",
+        "note": "Verificar manualmente en: https://www.abuseipdb.com/check/74.208.5.15"
+      },
+      "112.78.2.95": {
+        "ip": "112.78.2.95",
+        "source": "manual_check",
+        "note": "Verificar manualmente en: https://www.abuseipdb.com/check/112.78.2.95"
+      }
+    },
+    "domains": {
+      "10.135.74.97.in-addr.arpa": {
+        "domain": "10.135.74.97.in-addr.arpa",
+        "malicious": false,
+        "source": "ThreatFox",
+        "note": "No threat intelligence found"
+      },
+      "10.187.203.173.in-addr.arpa": {
+        "domain": "10.187.203.173.in-addr.arpa",
+        "malicious": false,
+        "source": "ThreatFox",
+        "note": "No threat intelligence found"
+      },
+      "104.209.26.217.in-addr.arpa": {
+        "domain": "104.209.26.217.in-addr.arpa",
+        "malicious": false,
+        "source": "ThreatFox",
+        "note": "No threat intelligence found"
+      },
+      "108.133.125.74.in-addr.arpa": {
+        "domain": "108.133.125.74.in-addr.arpa",
+        "malicious": false,
+        "source": "ThreatFox",
+        "note": "No threat intelligence found"
+      },
+      "109.167.233.64.in-addr.arpa": {
+        "domain": "109.167.233.64.in-addr.arpa",
+        "malicious": false,
+        "source": "ThreatFox",
+        "note": "No threat intelligence found"
+      },
+      "109.184.233.64.in-addr.arpa": {
+        "domain": "109.184.233.64.in-addr.arpa",
+        "malicious": false,
+        "source": "ThreatFox",
+        "note": "No threat intelligence found"
+      },
+      "11.192.81.197.in-addr.arpa": {
+        "domain": "11.192.81.197.in-addr.arpa",
+        "malicious": false,
+        "source": "ThreatFox",
+        "note": "No threat intelligence found"
+      },
+      "110.250.254.65.in-addr.arpa": {
+        "domain": "110.250.254.65.in-addr.arpa",
+        "malicious": false,
+        "source": "ThreatFox",
+        "note": "No threat intelligence found"
+      },
+      "111.45.43.202.in-addr.arpa": {
+        "domain": "111.45.43.202.in-addr.arpa",
+        "malicious": false,
+        "source": "ThreatFox",
+        "note": "No threat intelligence found"
+      },
+      "114.199.97.40.in-addr.arpa": {
+        "domain": "114.199.97.40.in-addr.arpa",
+        "malicious": false,
+        "source": "ThreatFox",
+        "note": "No threat intelligence found"
+      }
+    },
+    "urls": {
+      "http://104.236.185.25:8080/": {
+        "url": "http://104.236.185.25:8080/",
+        "malicious": false,
+        "source": "URLhaus"
+      },
+      "http://104.236.185.25:8080/whoami.php": {
+        "url": "http://104.236.185.25:8080/whoami.php",
+        "malicious": false,
+        "source": "URLhaus"
+      },
+      "http://181.13.229.35:465/": {
+        "url": "http://181.13.229.35:465/",
+        "malicious": false,
+        "source": "URLhaus"
+      },
+      "http://186.176.25.133:20/": {
+        "url": "http://186.176.25.133:20/",
+        "malicious": false,
+        "source": "URLhaus"
+      },
+      "http://187.162.64.241/": {
+        "url": "http://187.162.64.241/",
+        "malicious": false,
+        "source": "URLhaus"
+      }
+    }
+  },
+  "summary": {
+    "total_ips": 10,
+    "total_domains": 10,
+    "total_urls": 5
+  }
+}

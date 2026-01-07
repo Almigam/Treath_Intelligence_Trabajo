@@ -1,0 +1,32 @@
+═══════════════════════════════════════════════════════════
+    RESUMEN DE ANÁLISIS - THREAT INTELLIGENCE EXERCISE
+═══════════════════════════════════════════════════════════
+
+Fecha: Mon Jan  5 02:30:29 PM EST 2026
+Analista: [TU NOMBRE]
+
+ARCHIVOS ANALIZADOS:
+-----------------------------------------------------------
+1. Carnage (TryHackMe Room)
+   - PCAP: data/carnage/carnage.pcap
+
+2. Emotet Campaign (2019-01-24)
+   - PCAP: data/emotet/emotet-2019-01-24.pcap
+
+OUTPUTS GENERADOS:
+-----------------------------------------------------------
+- IoCs extraídos: outputs/iocs/
+- Análisis de beaconing: outputs/iocs/*_beaconing.json
+- IoCs enriquecidos: outputs/iocs/*_enriched.json
+- Análisis de red: analysis/network/
+- Logs Zeek: analysis/network/zeek_*/
+
+PRÓXIMOS PASOS:
+-----------------------------------------------------------
+1. Revisar IoCs en outputs/iocs/
+2. Correlacionar patrones entre Carnage y Emotet
+3. Mapear TTPs a MITRE ATT&CK
+4. Generar feeds STIX/TAXII
+5. Documentar hallazgos en informe final
+
+═══════════════════════════════════════════════════════════

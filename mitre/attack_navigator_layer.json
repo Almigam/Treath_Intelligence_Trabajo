@@ -1,0 +1,191 @@
+{
+  "name": "Carnage + Emotet Campaign Analysis",
+  "versions": {
+    "attack": "13",
+    "navigator": "4.8.1",
+    "layer": "4.4"
+  },
+  "domain": "enterprise-attack",
+  "description": "TTPs identificados en an\u00e1lisis de Carnage (TryHackMe) y campa\u00f1a Emotet 2019-01-24",
+  "filters": {
+    "platforms": [
+      "windows"
+    ]
+  },
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": true,
+    "showName": true
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1566.001",
+      "tactic": "initial-access",
+      "color": "",
+      "comment": "Emotet t\u00edpicamente distribuido v\u00eda email con documentos Office maliciosos; Macro ejecuta PowerShell para descargar payload",
+      "enabled": true,
+      "metadata": [],
+      "score": 3
+    },
+    {
+      "techniqueID": "T1059.001",
+      "tactic": "execution",
+      "color": "",
+      "comment": "User-Agent \"PowerShell\" detectado en tr\u00e1fico HTTP; Descarga de payloads v\u00eda PowerShell t\u00edpica de Emotet",
+      "enabled": true,
+      "metadata": [],
+      "score": 3
+    },
+    {
+      "techniqueID": "T1204.002",
+      "tactic": "execution",
+      "color": "",
+      "comment": "Documento Office con macro maliciosa; Usuario debe habilitar macros para ejecutar payload",
+      "enabled": true,
+      "metadata": [],
+      "score": 3
+    },
+    {
+      "techniqueID": "T1547",
+      "tactic": "persistence",
+      "color": "",
+      "comment": "Emotet establece persistencia v\u00eda registro de Windows; Beaconing continuo indica persistencia exitosa",
+      "enabled": true,
+      "metadata": [],
+      "score": 2
+    },
+    {
+      "techniqueID": "T1027",
+      "tactic": "defense-evasion",
+      "color": "",
+      "comment": "PowerShell con comandos ofuscados (-EncodedCommand); Payload cifrado en memoria",
+      "enabled": true,
+      "metadata": [],
+      "score": 3
+    },
+    {
+      "techniqueID": "T1140",
+      "tactic": "defense-evasion",
+      "color": "",
+      "comment": "PowerShell decodifica y ejecuta payload; Carga reflectiva de DLL en memoria (fileless)",
+      "enabled": true,
+      "metadata": [],
+      "score": 2
+    },
+    {
+      "techniqueID": "T1003",
+      "tactic": "credential-access",
+      "color": "",
+      "comment": "Emotet tiene m\u00f3dulos para robo de credenciales; No evidencia directa en PCAP (ocurre en endpoint)",
+      "enabled": true,
+      "metadata": [],
+      "score": 1
+    },
+    {
+      "techniqueID": "T1083",
+      "tactic": "discovery",
+      "color": "",
+      "comment": "Emotet busca archivos de Outlook para robar contactos; Preparaci\u00f3n para m\u00f3dulo de spam",
+      "enabled": true,
+      "metadata": [],
+      "score": 2
+    },
+    {
+      "techniqueID": "T1114",
+      "tactic": "collection",
+      "color": "",
+      "comment": "M\u00faltiples direcciones de email en tr\u00e1fico SMTP; Recolecci\u00f3n para posterior campa\u00f1a de spam",
+      "enabled": true,
+      "metadata": [],
+      "score": 3
+    },
+    {
+      "techniqueID": "T1071.001",
+      "tactic": "command-and-control",
+      "color": "",
+      "comment": "Beaconing peri\u00f3dico detectado v\u00eda HTTP/HTTPS; Comunicaci\u00f3n regular con servidores C2",
+      "enabled": true,
+      "metadata": [],
+      "score": 3
+    },
+    {
+      "techniqueID": "T1071.003",
+      "tactic": "command-and-control",
+      "color": "",
+      "comment": "Tr\u00e1fico SMTP saliente masivo detectado; Bot de spam activo",
+      "enabled": true,
+      "metadata": [],
+      "score": 3
+    },
+    {
+      "techniqueID": "T1568.002",
+      "tactic": "command-and-control",
+      "color": "",
+      "comment": "Dominios con alta entrop\u00eda detectados; Patr\u00f3n t\u00edpico de DGA en consultas DNS",
+      "enabled": true,
+      "metadata": [],
+      "score": 3
+    },
+    {
+      "techniqueID": "T1573",
+      "tactic": "command-and-control",
+      "color": "",
+      "comment": "Tr\u00e1fico HTTPS para C2; Certificados TLS observados",
+      "enabled": true,
+      "metadata": [],
+      "score": 3
+    },
+    {
+      "techniqueID": "T1105",
+      "tactic": "command-and-control",
+      "color": "",
+      "comment": "Descarga de payloads adicionales v\u00eda HTTP; Emotet descarga m\u00f3dulos (spam, robo de credenciales)",
+      "enabled": true,
+      "metadata": [],
+      "score": 3
+    },
+    {
+      "techniqueID": "T1499",
+      "tactic": "impact",
+      "color": "",
+      "comment": "Volumen masivo de conexiones SMTP; Sistema act\u00faa como bot de spam",
+      "enabled": true,
+      "metadata": [],
+      "score": 3
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#ffffff",
+      "#ff6666"
+    ],
+    "minValue": 0,
+    "maxValue": 3
+  },
+  "legendItems": [
+    {
+      "label": "HIGH Confidence",
+      "color": "#ff6666"
+    },
+    {
+      "label": "MEDIUM Confidence",
+      "color": "#ffcc66"
+    },
+    {
+      "label": "LOW Confidence",
+      "color": "#ffff99"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "Analyst",
+      "value": "Threat Intelligence Exercise"
+    },
+    {
+      "name": "Date",
+      "value": "2026-01-05"
+    }
+  ]
+}

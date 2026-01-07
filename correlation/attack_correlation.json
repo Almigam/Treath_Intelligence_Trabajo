@@ -1,0 +1,123 @@
+{
+  "metadata": {
+    "timestamp": "2026-01-05T15:26:44.755449",
+    "analysis": "Correlation between Carnage and Emotet campaigns"
+  },
+  "summary": {
+    "behavioral_patterns": 0,
+    "ttps_identified": 3,
+    "kill_chain_phases": 6
+  },
+  "behavioral_patterns": [],
+  "ttps": [
+    {
+      "technique": "T1114",
+      "name": "Email Collection",
+      "evidence": "11 emails detectados",
+      "tactic": "Collection"
+    },
+    {
+      "technique": "T1071.003",
+      "name": "Mail Protocols",
+      "evidence": "Actividad SMTP detectada",
+      "tactic": "Command and Control"
+    },
+    {
+      "technique": "T1071.001",
+      "name": "Web Protocols",
+      "evidence": "Comunicaci\u00f3n HTTP/HTTPS para C2",
+      "tactic": "Command and Control"
+    }
+  ],
+  "kill_chain": {
+    "phases": [
+      {
+        "phase": "1. Initial Access",
+        "mitre_tactic": "TA0001",
+        "techniques": [
+          "T1566.001 - Spearphishing Attachment"
+        ],
+        "evidence": [
+          "Emotet t\u00edpicamente llega v\u00eda email con documento malicioso",
+          "Carnage muestra descarga de payload posterior a ejecuci\u00f3n"
+        ],
+        "iocs": []
+      },
+      {
+        "phase": "2. Execution",
+        "mitre_tactic": "TA0002",
+        "techniques": [
+          "T1059.001 - PowerShell",
+          "T1204.002 - Malicious File"
+        ],
+        "evidence": [
+          "User-Agents maliciosos detectados: 0",
+          "Macro de Office ejecuta PowerShell (comportamiento t\u00edpico Emotet)"
+        ],
+        "iocs": []
+      },
+      {
+        "phase": "3. Persistence",
+        "mitre_tactic": "TA0003",
+        "techniques": [
+          "T1547 - Boot/Logon Autostart"
+        ],
+        "evidence": [
+          "Emotet establece persistencia v\u00eda registro o tareas programadas",
+          "Beaconing continuo indica persistencia exitosa"
+        ],
+        "iocs": []
+      },
+      {
+        "phase": "4. Command and Control",
+        "mitre_tactic": "TA0011",
+        "techniques": [
+          "T1071.001 - Web Protocols",
+          "T1568.002 - Domain Generation Algorithms",
+          "T1573 - Encrypted Channel"
+        ],
+        "evidence": [
+          "Beaconing detectado: intervalos regulares de comunicaci\u00f3n",
+          "DGA: 0 dominios candidatos",
+          "Comunicaci\u00f3n HTTPS cifrada"
+        ],
+        "iocs": []
+      },
+      {
+        "phase": "5. Collection",
+        "mitre_tactic": "TA0009",
+        "techniques": [
+          "T1114 - Email Collection"
+        ],
+        "evidence": [
+          "Direcciones de email recolectadas: 11",
+          "Actividad SMTP indica m\u00f3dulo de spam activo"
+        ],
+        "iocs": [
+          "Ashley@veronicahamiltondds.com",
+          "avillafane@fadua.com.ar",
+          "facturaproveedor@elytel.arnetbiz.com.ar",
+          "francisco.guzman@cafeelsalvador.com",
+          "info@mandys.ca",
+          "info@manonboyernotaire.ca",
+          "monitoreo@columbaseguridad.com.mx",
+          "pdr@prestigeautomobiles18.fr",
+          "pdr@prubensteinlaw.com",
+          "pdr@telecomplus.org.uk"
+        ]
+      },
+      {
+        "phase": "6. Impact",
+        "mitre_tactic": "TA0040",
+        "techniques": [
+          "T1499 - Endpoint Denial of Service (via spam)"
+        ],
+        "evidence": [
+          "Emotet distribuye spam masivo",
+          "Sistema comprometido usado como bot de spam"
+        ],
+        "iocs": []
+      }
+    ]
+  }
+}
