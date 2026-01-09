@@ -39,7 +39,7 @@
         ],
         "evidence": [
           "Emotet t\u00edpicamente llega v\u00eda email con documento malicioso",
-          "Carnage muestra descarga de payload posterior a ejecuci\u00f3n"
+          "Zeus Panda muestra descarga de payload posterior a ejecuci\u00f3n"
         ],
         "iocs": []
       },
